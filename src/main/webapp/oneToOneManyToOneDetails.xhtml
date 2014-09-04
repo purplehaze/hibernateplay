@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>OneToOne with ManyToOne fake Details</h1>
+
+       <h:panelGrid columns="2">
+           <h:outputText value="A:ID" />
+           <h:outputText value="#{oneToOneManyToOneDetailsController.data.id}" />
+
+           <h:outputText value="A:Name" />
+           <h:outputText value="#{oneToOneManyToOneDetailsController.data.name}" />
+
+           <h:outputText value="B:ID" />
+           <h:outputText value="#{oneToOneManyToOneDetailsController.data.b.id}" />
+
+           <h:outputText value="B:Name" />
+           <h:outputText value="#{oneToOneManyToOneDetailsController.data.b.name}" />
+       </h:panelGrid>
+
+   </ui:define>
+</ui:composition>

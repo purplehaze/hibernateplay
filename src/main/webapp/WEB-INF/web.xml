@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+				 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>hibernateplay</display-name>
+
+	<!-- HttpSession timeout in minutes -->
+	<session-config>
+		<session-timeout>15</session-timeout>
+		<cookie-config>
+			<path>/</path>
+		</cookie-config>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+<!--    <context-param>
+        <param-name>db.url</param-name>
+        <param-value>jdbc:h2:/Temp/hibernateplay-db;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.user</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.password</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.tcpServer</param-name>
+        <param-value>-tcpAllowOthers</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.h2.server.web.DbStarter</listener-class>
+    </listener>-->
+
+
+
+
+
+
+
+</web-app>

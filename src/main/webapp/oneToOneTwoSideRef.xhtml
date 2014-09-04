@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>OneToOneTwoSideRef - id references in both tables of one to one relation</h1>
+
+  		<p:dataTable value="#{oneToOneTwoSideRefController.data}" var="_o">
+  			<p:column headerText="Id">
+  				<h:outputText value="#{_o.id}" />
+  			</p:column>
+  			<p:column headerText="Name">
+  				<h:outputText value="#{_o.name}" />
+  			</p:column>
+  		</p:dataTable>
+   </ui:define>
+</ui:composition>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   template="/WEB-INF/templates/default.xhtml">
+   <ui:define name="content">
+      <h1>Welcome Hibernate Games</h1>
+
+      <h:form id="reg">
+        <h:panelGrid columns="1">
+            <h:link outcome="users.jsf" value="Users" />
+            <h:link outcome="oneToOneTwoSideRef" value="One to One with reference id columns in both entities" />
+            <h:link outcome="oneToOneManyToOne" value="One to One with ManyToOne fake" />
+        </h:panelGrid>
+      </h:form>
+
+   </ui:define>
+</ui:composition>
