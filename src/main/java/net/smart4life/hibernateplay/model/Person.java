@@ -1,17 +1,13 @@
 package net.smart4life.hibernateplay.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import org.hibernate.annotations.ForeignKey;
 import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
 
 @Entity
-public class Person extends BaseEntity {
+public class Person {
 	
 	@Column
 	private String firstname;
@@ -23,6 +19,21 @@ public class Person extends BaseEntity {
 	@ForeignKey(name="userId")
 	@LazyToOne(LazyToOneOption.NO_PROXY)
 	private User user;
+
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "COMPANY_ID", nullable = false)
+	private Company company;
+
+	@Id
+	private Long id;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getFirstname() {
 		return firstname;
@@ -47,5 +58,14 @@ public class Person extends BaseEntity {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public Company getCompany() {
+		return company;
+	}
+
+	public void setCompany(Company company) {
+		this.company = company;
+	}
+
 
 }

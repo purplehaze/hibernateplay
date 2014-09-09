@@ -12,7 +12,6 @@ public class OneToOneTwoSideRefA extends BaseEntity {
 	private String name;
 	
 	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-//	@Column(unique = true)
 	private OneToOneTwoSideRefB b;
 
 	public String getName() {
@@ -29,5 +28,8 @@ public class OneToOneTwoSideRefA extends BaseEntity {
 
 	public void setB(OneToOneTwoSideRefB b) {
 		this.b = b;
+		if(b != null){
+			b.setA(this);
+		}
 	}
 }

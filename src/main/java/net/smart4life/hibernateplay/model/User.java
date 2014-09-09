@@ -1,16 +1,12 @@
 package net.smart4life.hibernateplay.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
 
 @Entity
-public class User extends BaseEntity {
+public class User {
 	
 	@Column
 	private String username;
@@ -21,6 +17,17 @@ public class User extends BaseEntity {
 	@OneToOne(mappedBy="user", fetch=FetchType.LAZY, cascade=CascadeType.ALL, optional=false)
 	@LazyToOne(LazyToOneOption.NO_PROXY)
 	private Person person;
+
+	@Id
+	private Long id;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getUsername() {
 		return username;
@@ -44,8 +51,8 @@ public class User extends BaseEntity {
 
 	public void setPerson(Person person) {
 		this.person = person;
+		person.setUser(this);
 	}
-	
 	
 	
 
