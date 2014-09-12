@@ -8,7 +8,7 @@ public class OneToOneOneSideRefA extends BaseEntity {
 	@Column
 	private String name;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy = "a")
+	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy = "a", optional = false)
 	private OneToOneOneSideRefB b;
 
 	public String getName() {

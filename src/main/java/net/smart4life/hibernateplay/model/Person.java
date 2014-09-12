@@ -20,8 +20,8 @@ public class Person {
 	@LazyToOne(LazyToOneOption.NO_PROXY)
 	private User user;
 
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "COMPANY_ID", nullable = false)
+	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	@JoinColumn(name = "COMPANY_ID", nullable = true)
 	private Company company;
 
 	@Id

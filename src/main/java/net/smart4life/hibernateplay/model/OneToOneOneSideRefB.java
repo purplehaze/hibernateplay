@@ -8,8 +8,8 @@ public class OneToOneOneSideRefB extends BaseEntity {
 	@Column
 	private String name;
 	
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	@JoinColumn(name="A_ID")
+	@OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL, optional = false)
+	@JoinColumn(name="AAA_ID")
 	private OneToOneOneSideRefA a;
 
 	public String getName() {
