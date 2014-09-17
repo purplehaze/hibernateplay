@@ -1,17 +1,13 @@
 package net.smart4life.hibernateplay.controller;
 
 import net.smart4life.hibernateplay.model.Company;
-import net.smart4life.hibernateplay.model.OneToOneManyToOneA;
 import net.smart4life.hibernateplay.model.Person;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.servlet.ServletRequest;
 import java.util.List;
 import java.util.logging.Logger;
 

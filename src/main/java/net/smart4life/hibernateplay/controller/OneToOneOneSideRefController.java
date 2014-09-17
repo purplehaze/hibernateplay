@@ -19,7 +19,7 @@ public class OneToOneOneSideRefController {
 	private List<OneToOneOneSideRefA> data;
 	
 	@PostConstruct
-	private void init(){
+	public void init(){
 		data = em.createQuery("select o from OneToOneOneSideRefA o", OneToOneOneSideRefA.class).getResultList();
 	}
 

@@ -1,7 +1,6 @@
 package net.smart4life.hibernateplay.controller;
 
 import net.smart4life.hibernateplay.model.OneToOneTwoSideRefA;
-import net.smart4life.hibernateplay.model.User;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -20,7 +19,7 @@ public class OneToOneTwoSideRefController {
 	private List<OneToOneTwoSideRefA> data;
 	
 	@PostConstruct
-	private void init(){
+	public void init(){
 		data = em.createQuery("select o from OneToOneTwoSideRefA o", OneToOneTwoSideRefA.class).getResultList();
 	}
 

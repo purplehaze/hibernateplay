@@ -20,7 +20,7 @@ public class OneToOneManyToOneController {
 	private List<OneToOneManyToOneA> data;
 	
 	@PostConstruct
-	private void init(){
+	public void init(){
 		data = em.createQuery("select o from OneToOneManyToOneA o", OneToOneManyToOneA.class).getResultList();
 	}
 

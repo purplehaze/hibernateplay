@@ -1,12 +1,13 @@
 package net.smart4life.hibernateplay.util;
 
+import net.smart4life.hibernateplay.cdi.qualifier.NotRequestScoped;
+import net.smart4life.hibernateplay.cdi.transaction.Transactional;
 import net.smart4life.hibernateplay.model.*;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.logging.Logger;
@@ -17,17 +18,17 @@ public class DbInitializer {
 
 //	private Server h2Server;
 	
-	@Inject
+	@Inject @NotRequestScoped
 	private EntityManager em;
-	
+
     @Inject
     private Logger log;
 	
 	@PostConstruct
+	@Transactional
 	private void init(){
 		log.info("!!!!!!!!!!!!!!!!!!!!!!!!!!! init DB");
-//		startH2Server();
-		
+
 		initUserPerson();
 		initOneToOneTwoSideRef();
 		initOneToOneOneSideRef();
@@ -73,6 +74,7 @@ public class DbInitializer {
 		em.persist(company);
 	}
 
+	@Transactional
 	private void initOneToOneTwoSideRef(){
 		OneToOneTwoSideRefA a1 = new OneToOneTwoSideRefA();
 		a1.setName("A1");
@@ -89,6 +91,7 @@ public class DbInitializer {
 		em.persist(a2);
 	}
 
+	@Transactional
 	private void initOneToOneOneSideRef(){
 		OneToOneOneSideRefA a1 = new OneToOneOneSideRefA();
 		a1.setName("A1");
@@ -105,6 +108,7 @@ public class DbInitializer {
 		em.persist(a2);
 	}
 
+	@Transactional
 	private void initOneToOneManyToOne(){
 		OneToOneManyToOneA a1 = new OneToOneManyToOneA();
 		a1.setName("A1");
@@ -126,13 +130,5 @@ public class DbInitializer {
 
 		em.persist(a2);
 	}
-
-//	private void startH2Server(){
-//		try {
-//			h2Server = Server.createTcpServer("-tcp", "-tcpAllowOthers").start();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
 
 }

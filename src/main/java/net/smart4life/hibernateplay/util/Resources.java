@@ -25,10 +25,7 @@ import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
 
 /**
  * This class uses CDI to alias Java EE resources, such as the persistence context, to CDI beans
@@ -42,46 +39,13 @@ import javax.persistence.PersistenceContext;
  * private EntityManager em;
  * </pre>
  */
+@ApplicationScoped
 public class Resources {
     // use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
-    @SuppressWarnings("unused")
-    @Produces
-    @PersistenceContext
-    private EntityManager em;
-
-//	public void closeEntityManagerFactory(@Disposes @Any EntityManagerFactory entityManagerFactory) {
-//		entityManagerFactory.close();
-//	}
-//
-//	public void closeEntityManager(@Disposes @Any EntityManager entityManager) {
-//		if(entityManager != null && entityManager.isOpen()){
-//			try{
-//				entityManager.close();
-//			}catch(Exception e){
-//				//proxy handle is no longer valid
-//				if(e.getMessage() != null && e.getClass().getName().equals("org.hibernate.HibernateException")
-//						&& e.getMessage().equals("proxy handle is no longer valid")){
-//					e.printStackTrace();
-//				} else {
-//					throw e;
-//				}
-//
-//			}
-//		}
-//	}
-//
-//	@Produces
-//	@ApplicationScoped
-//	public EntityManagerFactory createMMnetEntityManagerFactory(){
-//		return Persistence.createEntityManagerFactory("primary");
-//	}
-//
-//	@Produces
-//	@RequestScoped
-//	public EntityManager createMMnetEntityManager(EntityManagerFactory entityManagerFactory){
-//		return entityManagerFactory.createEntityManager();
-//	}
-
+//    @SuppressWarnings("unused")
+//    @Produces
+//    @PersistenceContext
+//    private EntityManager em;
 
 
     @Produces
@@ -89,10 +53,16 @@ public class Resources {
         return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
     }
 
-    @Produces
-    @RequestScoped
-    public FacesContext produceFacesContext() {
-        return FacesContext.getCurrentInstance();
-    }
+//	@Produces
+//	public EmWrapper produceEmWrapper(EntityManager em){
+//		EmWrapper wrapper = new EmWrapper(em);
+//		return wrapper;
+//	}
+
+//    @Produces
+//    @RequestScoped
+//    public FacesContext produceFacesContext() {
+//        return FacesContext.getCurrentInstance();
+//    }
 
 }
