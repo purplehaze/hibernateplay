@@ -16,7 +16,8 @@
  */
 package net.smart4life.hibernateplay.util;
 
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
@@ -41,28 +42,17 @@ import javax.persistence.*;
  */
 @ApplicationScoped
 public class Resources {
-    // use @SuppressWarnings to tell IDE to ignore warnings about field not being referenced directly
-//    @SuppressWarnings("unused")
-//    @Produces
-//    @PersistenceContext
-//    private EntityManager em;
 
 
     @Produces
     public Logger produceLog(InjectionPoint injectionPoint) {
-        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
+        return LoggerFactory.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
     }
 
-//	@Produces
-//	public EmWrapper produceEmWrapper(EntityManager em){
-//		EmWrapper wrapper = new EmWrapper(em);
-//		return wrapper;
-//	}
-
-//    @Produces
-//    @RequestScoped
-//    public FacesContext produceFacesContext() {
-//        return FacesContext.getCurrentInstance();
-//    }
+    @Produces
+    @RequestScoped
+    public FacesContext produceFacesContext() {
+        return FacesContext.getCurrentInstance();
+    }
 
 }

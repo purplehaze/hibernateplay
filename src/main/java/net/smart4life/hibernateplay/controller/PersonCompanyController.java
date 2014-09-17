@@ -2,6 +2,7 @@ package net.smart4life.hibernateplay.controller;
 
 import net.smart4life.hibernateplay.model.Company;
 import net.smart4life.hibernateplay.model.Person;
+import org.slf4j.Logger;
 
 import javax.ejb.Stateful;
 import javax.enterprise.context.RequestScoped;
@@ -9,7 +10,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import java.util.List;
-import java.util.logging.Logger;
 
 @RequestScoped
 @Named

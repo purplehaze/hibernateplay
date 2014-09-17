@@ -1,5 +1,7 @@
 package net.smart4life.hibernateplay.cdi.transaction;
 
+import org.slf4j.Logger;
+
 import javax.inject.Inject;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
@@ -12,7 +14,6 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Logger;
 
 
 public abstract class TransactionalInterceptor implements Serializable {
@@ -62,7 +63,7 @@ public abstract class TransactionalInterceptor implements Serializable {
 				msg.append("Ausgefuehrt in "+executionTimeFormated+". ");
 				String params1 = formatMethodParams(context.getParameters());
 				msg.append("In "+ method1.getDeclaringClass().getSimpleName() + "." + method1.getName() + "("+params1+") ");
-				logger.warning(msg.toString());
+				logger.warn(msg.toString());
 			}
 
 			Method method2 = context.getMethod();

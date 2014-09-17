@@ -3,21 +3,18 @@ package net.smart4life.hibernateplay.util;
 import net.smart4life.hibernateplay.cdi.qualifier.NotRequestScoped;
 import net.smart4life.hibernateplay.cdi.transaction.Transactional;
 import net.smart4life.hibernateplay.model.*;
+import org.slf4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import java.util.logging.Logger;
 
 @Startup
 @Singleton
 public class DbInitializer {
 
-//	private Server h2Server;
-	
 	@Inject @NotRequestScoped
 	private EntityManager em;
 
