@@ -41,6 +41,8 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
         <maven.compiler.source>1.7</maven.compiler.source>
+
+        <codi.version>1.0.5</codi.version>
     </properties>
 
     <dependencyManagement>
@@ -151,7 +153,7 @@
         <dependency>  
 		    <groupId>org.primefaces</groupId>  
 		    <artifactId>primefaces</artifactId>  
-		    <version>5.0</version>  
+		    <version>4.0.11</version>
 		</dependency>
 
         <dependency>
@@ -165,6 +167,20 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.myfaces.extensions.cdi.core</groupId>
+            <artifactId>myfaces-extcdi-core-impl</artifactId>
+            <version>${codi.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.myfaces.extensions.cdi.modules</groupId>
+            <artifactId>myfaces-extcdi-jsf20-module-impl</artifactId>
+            <version>${codi.version}</version>
+            <scope>compile</scope>
         </dependency>
 
       <!--  <dependency>

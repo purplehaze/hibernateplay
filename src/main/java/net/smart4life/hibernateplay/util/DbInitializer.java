@@ -40,7 +40,7 @@ public class DbInitializer {
 		em.flush();
 
 		User u = new User();
-		u.setId(1L);
+//		u.setId(1L);
 		u.setUsername("aaa");
 		u.setPassword("aaa");
 
@@ -55,7 +55,7 @@ public class DbInitializer {
 
 
 		u = new User();
-		u.setId(2L);
+//		u.setId(2L);
 		u.setUsername("bbb");
 		u.setPassword("bbb");
 
@@ -65,6 +65,30 @@ public class DbInitializer {
 		p.setSecondname("Gates");
 		p.setUser(u);
 		company.addPerson(p);
+		em.persist(u);
+
+		u = new User();
+		u.setPerson(p);
+		u.setUsername("ccc");
+		u.setPassword("ccc");
+		em.persist(u);
+
+		u = new User();
+		u.setPerson(p);
+		u.setUsername("ddd");
+		u.setPassword("ddd");
+		em.persist(u);
+
+		u = new User();
+		u.setPerson(p);
+		u.setUsername("eee");
+		u.setPassword("eee");
+		em.persist(u);
+
+		u = new User();
+		u.setPerson(p);
+		u.setUsername("fff");
+		u.setPassword("fff");
 		em.persist(u);
 
 

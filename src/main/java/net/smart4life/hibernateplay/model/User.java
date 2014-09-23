@@ -6,7 +6,7 @@ import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
 
 @Entity
-public class User {
+public class User extends BaseEntity {
 	
 	@Column
 	private String username;
@@ -17,17 +17,6 @@ public class User {
 	@OneToOne(mappedBy="user", fetch=FetchType.LAZY, cascade=CascadeType.ALL, optional=false)
 	@LazyToOne(LazyToOneOption.NO_PROXY)
 	private Person person;
-
-	@Id
-	private Long id;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getUsername() {
 		return username;

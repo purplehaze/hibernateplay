@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+
+       <h:form id="editForm">
+
+       <h:panelGrid columns="2" id="pGrid">
+           <h:outputText value="Id" />
+           <h:inputText value="#{bindingProblemHandler.entity.id}" id="userId"/>
+
+           <h:outputText value="Name" />
+           <h:inputText value="#{bindingProblemHandler.entity.username}" />
+
+           <p:commandButton value="Back to List" action="#{bindingProblemState.gotoList}" update=":bindingPanel" process="@this" partialSubmit="true"/>
+           <p:commandButton value="Save" action="#{bindingProblemHandler.save}" update="@form" process="@form" partialSubmit="true"/>
+       </h:panelGrid>
+
+       </h:form>
+
+</ui:composition>

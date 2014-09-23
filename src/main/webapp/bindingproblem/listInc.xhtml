@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+
+
+    <h:form id="bindingProblemListForm">
+        <p:dataTable value="#{bindingProblemListHandler.users}"
+                     var="_o"
+                     selection="#{bindingProblemHandler.entity}"
+                     selectionMode="single"
+                     lazy="true"
+                     rows="5"
+                     id="table1"
+                     binding="#{bindingProblemListHandler.dataTableReference1.dataTable}"
+                     paginator="true">
+            <p:ajax event="rowSelect" listener="#{bindingProblemHandler.select}" partialSubmit="true" update=":bindingPanel"/>
+
+            <p:column headerText="Id" id="idCol" sortBy="#{_o.id}" filterBy="#{_o.id}" filterValue="#{bindingProblemListHandler.users.savedFilters.id}" >
+                <h:outputText value="#{_o.id}" />
+            </p:column>
+            <p:column headerText="Name" id="nameCol" sortBy="#{_o.username}" filterBy="#{_o.username}" filterValue="#{bindingProblemListHandler.users.savedFilters.username}">
+                <h:outputText value="#{_o.username}" />
+            </p:column>
+        </p:dataTable>
+
+    </h:form>
+
+    <h:form id="bindingProblemListForm2">
+
+        <p:dataTable value="#{bindingProblemListHandler.users2}"
+                     var="_o2"
+                     lazy="true"
+                     rows="5"
+                     id="table2"
+                     binding="#{bindingProblemListHandler.dataTableReference2.dataTable}"
+                     paginator="true">
+
+            <p:column headerText="Id" id="idCol2" sortBy="#{_o2.id}" filterBy="#{_o2.id}" filterValue="#{bindingProblemListHandler.users2.savedFilters.id}" >
+                <h:outputText value="#{_o2.id}" />
+            </p:column>
+            <p:column headerText="Name" id="nameCol2"
+                      sortBy="username"
+                      filterBy="#{_o2.username}" filterValue="#{bindingProblemListHandler.users2.savedFilters.username}">
+                <h:outputText value="#{_o2.username}" />
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</ui:composition>
